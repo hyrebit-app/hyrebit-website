@@ -1,0 +1,294 @@
+/* ==========================================
+   HYREBIT CUSTOM BRAND & VISUAL DESIGN SYSTEM
+   ========================================== */
+
+/* 1. Typography & Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --color-seeker-purple: #4A10F4;
+  --color-seeker-purple-glow: rgba(74, 16, 244, 0.15);
+  --color-employer-green: #17B169;
+  --color-employer-green-glow: rgba(23, 177, 105, 0.15);
+  --color-bg-light: #FAFAFA;
+  --color-bg-purple-blob: #F3EDFF;
+  --color-bg-green-blob: #E8F8F0;
+  
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-light);
+  overflow-x: hidden;
+  color: #1F2937;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* 2. Glassmorphic Navigation & Cards */
+.glass-nav {
+  background: rgba(250, 250, 250, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+  transition: all 0.3s ease;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(229, 231, 235, 0.7);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04);
+}
+
+/* 3. Floating Background Blobs */
+.blob-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.65;
+  mix-blend-mode: multiply;
+  animation: float-blob 20s infinite alternate ease-in-out;
+}
+
+.blob-purple {
+  background-color: var(--color-bg-purple-blob);
+  width: 500px;
+  height: 500px;
+  top: -100px;
+  right: -50px;
+}
+
+.blob-green {
+  background-color: var(--color-bg-green-blob);
+  width: 600px;
+  height: 600px;
+  top: 30%;
+  left: -200px;
+  animation-duration: 25s;
+  animation-delay: -5s;
+}
+
+.blob-purple-light {
+  background-color: rgba(243, 237, 255, 0.8);
+  width: 450px;
+  height: 450px;
+  bottom: 10%;
+  right: -100px;
+  animation-duration: 18s;
+  animation-delay: -10s;
+}
+
+@keyframes float-blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+/* 4. High-Fidelity CSS Smartphone Mockup */
+.phone-mockup {
+  position: relative;
+  width: 290px;
+  height: 590px;
+  border-radius: 40px;
+  background: #111827;
+  border: 11px solid #1F2937;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 4px rgba(74, 16, 244, 0.08),
+    inset 0 4px 10px rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  user-select: none;
+  margin: 0 auto;
+}
+
+/* Screen reflection overlay */
+.phone-mockup::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 50%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.phone-screen {
+  position: relative;
+  flex: 1;
+  background: #FAFAFA;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+}
+
+/* Speaker & Camera Notch (Dynamic Island style) */
+.phone-notch {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85px;
+  height: 22px;
+  background: #111827;
+  border-radius: 12px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.phone-notch-camera {
+  width: 7px;
+  height: 7px;
+  background: #1F2937;
+  border-radius: 50%;
+  border: 1px solid #374151;
+}
+
+.phone-notch-sensor {
+  width: 4px;
+  height: 4px;
+  background: #111827;
+  border-radius: 50%;
+}
+
+.phone-status-bar {
+  height: 38px;
+  padding: 12px 16px 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 600;
+  color: #1F2937;
+  z-index: 15;
+}
+
+/* 5. Custom Button Glowing Shadows & Hover Effects */
+.btn-glow-purple {
+  box-shadow: 0 10px 25px -5px var(--color-seeker-purple-glow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-glow-purple:hover {
+  box-shadow: 0 15px 30px -5px rgba(74, 16, 244, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-glow-green {
+  box-shadow: 0 10px 25px -5px var(--color-employer-green-glow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-glow-green:hover {
+  box-shadow: 0 15px 30px -5px rgba(23, 177, 105, 0.35);
+  transform: translateY(-2px);
+}
+
+/* 6. Success Toast Animation */
+.toast-notification {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.toast-notification.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* 7. Stepper Card Connective Line (for larger screens) */
+.step-card {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.step-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Custom interactive active states */
+.role-tab-active-purple {
+  background-color: var(--color-seeker-purple);
+  color: white;
+  box-shadow: 0 4px 15px rgba(74, 16, 244, 0.25);
+}
+
+.role-tab-active-green {
+  background-color: var(--color-employer-green);
+  color: white;
+  box-shadow: 0 4px 15px rgba(23, 177, 105, 0.25);
+}
+
+/* Pulse animation for CTA button badge */
+@keyframes pulse-soft {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(74, 16, 244, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 8px rgba(74, 16, 244, 0);
+  }
+}
+
+.pulse-badge {
+  animation: pulse-soft 2s infinite;
+}
+
+/* App Mockup Animation Sequences */
+.app-swipe-item {
+  animation: swipeUp 8s infinite ease-in-out;
+}
+
+@keyframes swipeUp {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  45%, 55% {
+    transform: translateY(-135px);
+  }
+}
+
+/* Custom Hide Scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

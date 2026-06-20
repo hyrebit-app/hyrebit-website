@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HyreBit | Instant Local Hiring & Flexible Jobs Nearby</title>
+  <meta name="description" content="Connect with verified shops, cafes, and supermarkets in your neighborhood. Find daily wage, part-time, or full-time jobs. Apply in one tap with no resumes needed.">
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandPurple: {
+              DEFAULT: '#4A10F4',
+              light: '#F3EDFF',
+              dark: '#380BD1',
+              glow: 'rgba(74, 16, 244, 0.15)',
+            },
+            brandGreen: {
+              DEFAULT: '#17B169',
+              light: '#E8F8F0',
+              dark: '#128C53',
+              glow: 'rgba(23, 177, 105, 0.15)',
+            },
+            brandGray: {
+              DEFAULT: '#FAFAFA',
+              dark: '#1F2937',
+            }
+          },
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            'premium': '0 10px 30px -10px rgba(0, 0, 0, 0.04)',
+            'glow-purple': '0 10px 25px -5px rgba(74, 16, 244, 0.25)',
+            'glow-green': '0 10px 25px -5px rgba(23, 177, 105, 0.25)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-brandGray font-body text-gray-800 antialiased selection:bg-brandPurple/20 selection:text-brandPurple">
+
+  <!-- BACKGROUND DECORATIONS -->
+  <div class="blob-container">
+    <div class="blob blob-purple"></div>
+    <div class="blob blob-green"></div>
+    <div class="blob blob-purple-light"></div>
+  </div>
+
+  <!-- ==========================================
+       1. NAV BAR (Sticky & Glassmorphic)
+       ========================================== -->
+  <header class="glass-nav fixed top-0 left-0 w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center space-x-2 text-2xl font-bold font-heading text-brandPurple transition hover:opacity-90">
+        <span class="bg-brandPurple/10 w-9 h-9 rounded-xl flex items-center justify-center">
+          <i data-lucide="zap" class="w-5 h-5 text-brandPurple fill-brandPurple"></i>
+        </span>
+        <span class="text-gray-900 tracking-tight">Hyre<span class="text-brandPurple">Bit</span></span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="#how-it-works" class="text-sm font-medium text-gray-600 hover:text-brandPurple transition-colors">How it Works</a>
+        <a href="#features" class="text-sm font-medium text-gray-600 hover:text-brandPurple transition-colors">Features</a>
+        <a href="#job-feed" class="text-sm font-medium text-gray-600 hover:text-brandPurple transition-colors">Find Jobs</a>
+        <a href="#trust" class="text-sm font-medium text-gray-600 hover:text-brandPurple transition-colors">Partner Portal</a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden md:flex items-center space-x-4">
+        <a href="#role-selector" class="border border-brandGreen text-brandGreen hover:bg-brandGreen hover:text-white transition-all duration-300 px-5 py-2.5 rounded-xl text-sm font-semibold btn-glow-green">
+          Post a Job
+        </a>
+        <a href="#download" class="bg-brandPurple hover:bg-brandPurple-dark text-white transition-all duration-300 px-5 py-2.5 rounded-xl text-sm font-semibold btn-glow-purple">
+          Download App
+        </a>
+      </div>
+
+      <!-- Hamburger Button (Mobile) -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:text-brandPurple focus:outline-none" aria-label="Toggle menu">
+        <i id="menu-icon-open" data-lucide="menu" class="w-6 h-6"></i>
+        <i id="menu-icon-close" data-lucide="x" class="w-6 h-6 hidden"></i>
+      </button>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden flex-col bg-white/95 border-b border-gray-200 px-6 py-6 space-y-4 absolute top-20 left-0 w-full shadow-lg transition-all duration-300">
+      <a href="#how-it-works" class="text-base font-semibold text-gray-700 hover:text-brandPurple py-2 border-b border-gray-100">How it Works</a>
+      <a href="#features" class="text-base font-semibold text-gray-700 hover:text-brandPurple py-2 border-b border-gray-100">Features</a>
+      <a href="#job-feed" class="text-base font-semibold text-gray-700 hover:text-brandPurple py-2 border-b border-gray-100">Find Jobs</a>
+      <a href="#trust" class="text-base font-semibold text-gray-700 hover:text-brandPurple py-2 border-b border-gray-100">Partner Portal</a>
+      <div class="flex flex-col space-y-3 pt-4">
+        <a href="#role-selector" class="w-full text-center border border-brandGreen text-brandGreen py-3 rounded-xl font-semibold hover:bg-brandGreen hover:text-white transition">Post a Job</a>
+        <a href="#download" class="w-full text-center bg-brandPurple text-white py-3 rounded-xl font-semibold hover:bg-brandPurple-dark transition">Download App</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       2. HERO SECTION
+       ========================================== -->
+  <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      
+      <!-- Copywriting Column -->
+      <div class="lg:col-span-7 flex flex-col justify-center text-center lg:text-left">
+        
+        <!-- Trust badge -->
+        <div class="inline-flex items-center self-center lg:self-start bg-brandPurple/10 text-brandPurple px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-6 pulse-badge">
+          ⚡ 100% Verified Local Hiring App
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-gray-900 tracking-tight leading-[1.1] mb-6">
+          Find Nearby Jobs & Start <span class="text-brandPurple">Earning</span> in Minutes
+        </h1>
+
+        <p class="text-lg text-gray-600 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+          No resumes. No long forms. Connect with verified shops, cafes, and supermarkets in your neighborhood. Apply in one tap and start working.
+        </p>
+
+        <!-- Dual CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
+          <a href="#download" class="w-full sm:w-auto bg-brandPurple hover:bg-brandPurple-dark text-white font-semibold text-base px-8 py-4 rounded-xl flex items-center justify-center space-x-2 btn-glow-purple group transition-all duration-300">
+            <span>Get the App 🚀</span>
+          </a>
+          <a href="#role-selector" class="w-full sm:w-auto border-2 border-brandGreen hover:bg-brandGreen hover:text-white text-brandGreen font-semibold text-base px-8 py-3.5 rounded-xl flex items-center justify-center space-x-2 btn-glow-green transition-all duration-300">
+            <span>Hire Staff Instantly</span>
+          </a>
+        </div>
+
+        <!-- Horizontal Stats Flexbox -->
+        <div class="border-t border-gray-200/80 pt-8 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
+          <div class="text-center lg:text-left">
+            <h4 class="text-xl sm:text-2xl font-bold text-gray-900 font-heading">★ 4.9</h4>
+            <p class="text-xs sm:text-sm text-gray-500 font-medium">App Rating</p>
+          </div>
+          <div class="text-center lg:text-left border-x border-gray-200 px-4">
+            <h4 class="text-xl sm:text-2xl font-bold text-gray-900 font-heading">10k+</h4>
+            <p class="text-xs sm:text-sm text-gray-500 font-medium">Jobs Filled</p>
+          </div>
+          <div class="text-center lg:text-left">
+            <h4 class="text-xl sm:text-2xl font-bold text-gray-900 font-heading">2.5k+</h4>
+            <p class="text-xs sm:text-sm text-gray-500 font-medium">Shops Verified</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Smartphone Mockup Column -->
+      <div class="lg:col-span-5 flex justify-center items-center relative">
+        <!-- Glow backing behind phone -->
+        <div class="absolute w-72 h-72 bg-brandPurple/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
+        
+        <!-- High-fidelity CSS phone mockup -->
+        <div class="phone-mockup">
+          <div class="phone-notch">
+            <div class="phone-notch-camera"></div>
+            <div class="phone-notch-sensor"></div>
+          </div>
+          
+          <div class="phone-status-bar">
+            <span>17:01</span>
+            <div class="flex items-center space-x-1.5">
+              <i data-lucide="wifi" class="w-3 h-3 text-gray-700"></i>
+              <i data-lucide="battery" class="w-3.5 h-3.5 text-gray-700"></i>
+            </div>
+          </div>
+
+          <!-- Smartphone Screen Content -->
+          <div class="phone-screen px-4 pb-4 pt-1 flex flex-col justify-between">
+            <!-- Simulated App Top Header -->
+            <div class="flex items-center justify-between py-2 border-b border-gray-100">
+              <div class="flex items-center space-x-1.5">
+                <i data-lucide="map-pin" class="w-4 h-4 text-brandPurple"></i>
+                <span class="text-[11px] font-bold text-gray-800">Calicut, Within 3km</span>
+              </div>
+              <div class="w-6 h-6 rounded-full bg-brandPurple/10 flex items-center justify-center">
+                <i data-lucide="user" class="w-3.5 h-3.5 text-brandPurple"></i>
+              </div>
+            </div>
+
+            <!-- Main simulated screen elements -->
+            <div class="flex-1 overflow-y-auto no-scrollbar py-3 space-y-3">
+              <!-- Live Map Placeholder -->
+              <div class="h-24 bg-purple-50 rounded-xl relative overflow-hidden border border-purple-100 flex items-center justify-center">
+                <!-- Map simulation grid lines -->
+                <div class="absolute inset-0 bg-[radial-gradient(#e2d5ff_1px,transparent_1px)] [background-size:16px_16px] opacity-70"></div>
+                <!-- Mock GPS tracker -->
+                <div class="absolute w-6 h-6 bg-brandPurple/20 rounded-full flex items-center justify-center">
+                  <div class="w-3 h-3 bg-brandPurple rounded-full border border-white"></div>
+                </div>
+                <!-- Small floating pins -->
+                <div class="absolute top-4 left-12 w-4 h-4 bg-brandGreen/25 rounded-full flex items-center justify-center">
+                  <i data-lucide="coffee" class="w-2.5 h-2.5 text-brandGreen"></i>
+                </div>
+                <div class="absolute bottom-4 right-16 w-4 h-4 bg-brandGreen/25 rounded-full flex items-center justify-center">
+                  <i data-lucide="shopping-bag" class="w-2.5 h-2.5 text-brandGreen"></i>
+                </div>
+                <span class="absolute bottom-1 right-2 text-[8px] bg-white px-1.5 py-0.5 rounded shadow text-gray-500 font-medium">GPS Active</span>
+              </div>
+
+              <!-- Earnings Summary Widget -->
+              <div class="bg-white p-3 rounded-xl border border-gray-100 shadow-sm flex justify-between items-center">
+                <div>
+                  <p class="text-[9px] text-gray-400 font-medium">Today's Earnings</p>
+                  <p class="text-sm font-bold text-gray-800">₹650.00</p>
+                </div>
+                <div class="bg-brandGreen/10 px-2 py-1 rounded text-[9px] text-brandGreen font-bold flex items-center">
+                  <i data-lucide="trending-up" class="w-3 h-3 mr-0.5"></i> Paid
+                </div>
+              </div>
+
+              <!-- Scrolling Gig Cards Simulation -->
+              <div class="space-y-2 overflow-hidden h-[180px] relative">
+                <div class="app-swipe-item space-y-2.5">
+                  <!-- Gig Card 1 -->
+                  <div class="bg-white p-3 rounded-xl border-l-4 border-l-brandPurple border border-gray-100 shadow-sm">
+                    <div class="flex justify-between items-start">
+                      <div>
+                        <h5 class="text-[11px] font-bold text-gray-800 leading-tight">Barista / Staff</h5>
+                        <p class="text-[9px] text-gray-500">The Coffee Club</p>
+                      </div>
+                      <span class="text-[9px] font-bold text-brandPurple">₹500/Day</span>
+                    </div>
+                    <div class="flex items-center space-x-1.5 mt-2 text-[8px] text-gray-400">
+                      <span>0.8 km</span>
+                      <span>•</span>
+                      <span>Flexible</span>
+                    </div>
+                  </div>
+                  <!-- Gig Card 2 -->
+                  <div class="bg-white p-3 rounded-xl border-l-4 border-l-brandPurple border border-gray-100 shadow-sm">
+                    <div class="flex justify-between items-start">
+                      <div>
+                        <h5 class="text-[11px] font-bold text-gray-800 leading-tight">Delivery Partner</h5>
+                        <p class="text-[9px] text-gray-500">Bakery Fresh</p>
+                      </div>
+                      <span class="text-[9px] font-bold text-brandPurple">₹600/Day</span>
+                    </div>
+                    <div class="flex items-center space-x-1.5 mt-2 text-[8px] text-gray-400">
+                      <span>1.2 km</span>
+                      <span>•</span>
+                      <span>Part-time</span>
+                    </div>
+                  </div>
+                  <!-- Gig Card 3 -->
+                  <div class="bg-white p-3 rounded-xl border-l-4 border-l-brandPurple border border-gray-100 shadow-sm">
+                    <div class="flex justify-between items-start">
+                      <div>
+                        <h5 class="text-[11px] font-bold text-gray-800 leading-tight">Supermarket Cashier</h5>
+                        <p class="text-[9px] text-gray-500">Mega Mart</p>
+                      </div>
+                      <span class="text-[9px] font-bold text-brandPurple">₹12,000/Mo</span>
+                    </div>
+                    <div class="flex items-center space-x-1.5 mt-2 text-[8px] text-gray-400">
+                      <span>2.1 km</span>
+                      <span>•</span>
+                      <span>Full-time</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Fade out at bottom -->
+                <div class="absolute bottom-0 left-0 w-full h-8 bg-gradient-to-t from-brandGray to-transparent pointer-events-none"></div>
+              </div>
+            </div>
+
+            <!-- Bottom Navigation Bar (Phone) -->
+            <div class="pt-2 border-t border-gray-100 flex items-center justify-around text-gray-400">
+              <div class="flex flex-col items-center text-brandPurple">
+                <i data-lucide="compass" class="w-4 h-4"></i>
+                <span class="text-[8px] font-bold mt-0.5">Explore</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <i data-lucide="calendar" class="w-4 h-4"></i>
+                <span class="text-[8px] mt-0.5">Gigs</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <i data-lucide="message-square" class="w-4 h-4"></i>
+                <span class="text-[8px] mt-0.5">Chats</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <i data-lucide="wallet" class="w-4 h-4"></i>
+                <span class="text-[8px] mt-0.5">Payouts</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       3. INTERACTIVE ROLE SELECTOR (Dual View)
+       ========================================== -->
+  <section id="role-selector" class="py-20 bg-white relative">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold font-heading text-gray-900 mb-4">
+          One Platform. Two Tailored Experiences.
+        </h2>
+        <p class="text-gray-600 text-lg">
+          Whether you want flexible work or need to hire local workers instantly, HyreBit has custom features for you.
+        </p>
+      </div>
+
+      <!-- Tab Switcher Navigation -->
+      <div class="flex max-w-md mx-auto bg-gray-100 p-1.5 rounded-2xl mb-12 shadow-inner">
+        <button id="tab-seeker" class="flex-1 py-3 px-6 text-sm font-semibold rounded-xl transition-all duration-300 role-tab-active-purple">
+          Looking for Jobs
+        </button>
+        <button id="tab-employer" class="flex-1 py-3 px-6 text-sm font-medium text-gray-500 rounded-xl transition-all duration-300 hover:text-gray-900">
+          Looking for Workers
+        </button>
+      </div>
+
+      <!-- INTERACTIVE CONTENT BOX -->
+      <div class="glass-card rounded-3xl p-8 md:p-12 shadow-lg border border-gray-100">
+        
+        <!-- SEEKER DUAL VIEW -->
+        <div id="seeker-view" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7 space-y-6">
+            <span class="bg-brandPurple/10 text-brandPurple px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+              For Job Seekers
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-bold font-heading text-gray-900 leading-tight">
+              Apply without a resume. Show your experience, location, and start immediately.
+            </h3>
+            <p class="text-gray-600">
+              HyreBit matches your proximity and working hours to create a seamless list of available tasks, daily gigs, and long-term roles around you.
+            </p>
+            <div class="pt-4 flex flex-wrap gap-3">
+              <a href="#download" class="bg-brandPurple hover:bg-brandPurple-dark text-white px-6 py-3 rounded-xl font-bold text-sm btn-glow-purple">
+                Find Jobs Near Me
+              </a>
+            </div>
+          </div>
+          
+          <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Feature Item 1 -->
+            <div class="p-5 bg-brandPurple/5 rounded-2xl border border-brandPurple/10 hover:border-brandPurple/30 transition-all duration-300">
+              <div class="bg-brandPurple/10 w-10 h-10 rounded-xl flex items-center justify-center mb-4">
+                <i data-lucide="zap" class="w-5 h-5 text-brandPurple"></i>
+              </div>
+              <h4 class="font-bold text-gray-900 font-heading mb-1.5">One-Tap Apply</h4>
+              <p class="text-xs text-gray-600 leading-relaxed">Skip the CV process. Tap to apply instantly and get hired fast.</p>
+            </div>
+            <!-- Feature Item 2 -->
+            <div class="p-5 bg-brandPurple/5 rounded-2xl border border-brandPurple/10 hover:border-brandPurple/30 transition-all duration-300">
+              <div class="bg-brandPurple/10 w-10 h-10 rounded-xl flex items-center justify-center mb-4">
+                <i data-lucide="navigation" class="w-5 h-5 text-brandPurple"></i>
+              </div>
+              <h4 class="font-bold text-gray-900 font-heading mb-1.5">3km GPS Search</h4>
+              <p class="text-xs text-gray-600 leading-relaxed">Map search focuses solely on hyper-local shops right near your home.</p>
+            </div>
+            <!-- Feature Item 3 -->
+            <div class="p-5 bg-brandPurple/5 rounded-2xl border border-brandPurple/10 hover:border-brandPurple/30 transition-all duration-300">
+              <div class="bg-brandPurple/10 w-10 h-10 rounded-xl flex items-center justify-center mb-4">
+                <i data-lucide="wallet" class="w-5 h-5 text-brandPurple"></i>
+              </div>
+              <h4 class="font-bold text-gray-900 font-heading mb-1.5">Daily Payouts</h4>
+              <p class="text-xs text-gray-600 leading-relaxed">Earn hourly or daily wages securely processed inside the application.</p>
+            </div>
+            <!-- Feature Item 4 -->
+            <div class="p-5 bg-brandPurple/5 rounded-2xl border border-brandPurple/10 hover:border-brandPurple/30 transition-all duration-300">
+              <div class="bg-brandPurple/10 w-10 h-10 rounded-xl flex items-center justify-center mb-4">
+                <i data-lucide="award" class="w-5 h-5 text-brandPurple"></i>
+              </div>
+              <h4 class="font-bold text-gray-900 font-heading mb-1.5">Trust Score rewards</h4>
+              <p class="text-xs text-gray-600 leading-relaxed">Maintain good attendance, receive five stars, and unlock premium bonuses.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- EMPLOYER DUAL VIEW -->
+        <div id="employer-view" class="hidden grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7 space-y-6">
+            <span class="bg-brandGreen/10 text-brandGreen px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+              For Employers & Shops
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-bold font-heading text-gray-900 leading-tight">
+              Post jobs in 60 seconds. Review verified local applicants, contact directly, and hire.
+            </h3>
+            <p class="text-gray-600">
+              Whether you need event helper staff, bakery cashiers, or restaurant delivery drivers, reach thousands of nearby candidates active in your local area.
+            </p>
+            <div class="pt-4 flex flex-wrap gap-3">
+              <a href="#download" class="bg-brandGreen hover:bg-brandGreen-dark text-white px-6 py-3 rounded-xl font-bold text-sm btn-glow-green">
+                Create Shop Account
+              </a>
+            </div>
+          </div>
+          
+          <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Feature Item 1 -->
+            <div class="p-5 bg-brandGreen/5 rounded-2xl border border-brandGreen/10 hover:border-brandGreen/30 transition-all duration-300">
+              <div class="bg-brandGreen/10 w-10 h-10 rounded-xl flex items-center justify-center mb-4">
+                <i data-lucide="clock" class="w-5 h-5 text-brandGreen"></i>
+              </div>
+              <h4 class="font-bold text-gray-900 font-heading mb-1.5">Fast Job Listing</h4>
+              <p class="text-xs text-gray-600 leading-relaxed">Draft custom shift work templates and broadcast them in under a minute.</p>
+            </div>
+            <!-- Feature Item 2 -->
+            <div class="p-5 bg-brandGreen/5 rounded-2xl border border-brandGreen/10 hover:border-brandGreen/30 transition-all duration-300">
+              <div class="bg-brandGreen/10 w-10 h-10 rounded-xl flex items-center justify-center mb-4">
+                <i data-lucide="message-square" class="w-5 h-5 text-brandGreen"></i>
+              </div>
+              <h4 class="font-bold text-gray-900 font-heading mb-1.5">Direct Screening</h4>
+              <p class="text-xs text-gray-600 leading-relaxed">Chat, call, and approve prospective candidates in real-time inside app.</p>
+            </div>
+            <!-- Feature Item 3 -->
+            <div class="p-5 bg-brandGreen/5 rounded-2xl border border-brandGreen/10 hover:border-brandGreen/30 transition-all duration-300">
+              <div class="bg-brandGreen/10 w-10 h-10 rounded-xl flex items-center justify-center mb-4">
+                <i data-lucide="shield-check" class="w-5 h-5 text-brandGreen"></i>
+              </div>
+              <h4 class="font-bold text-gray-900 font-heading mb-1.5">Trust Profiles</h4>
+              <p class="text-xs text-gray-600 leading-relaxed">Check verify work history, background check levels, and review metrics.</p>
+            </div>
+            <!-- Feature Item 4 -->
+            <div class="p-5 bg-brandGreen/5 rounded-2xl border border-brandGreen/10 hover:border-brandGreen/30 transition-all duration-300">
+              <div class="bg-brandGreen/10 w-10 h-10 rounded-xl flex items-center justify-center mb-4">
+                <i data-lucide="credit-card" class="w-5 h-5 text-brandGreen"></i>
+              </div>
+              <h4 class="font-bold text-gray-900 font-heading mb-1.5">Secure Payouts</h4>
+              <p class="text-xs text-gray-600 leading-relaxed">Verify shift completion logs and release wages automatically.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       4. "HOW IT WORKS" WORKFLOW STEPPER
+       ========================================== -->
+  <section id="how-it-works" class="py-20 bg-brandGray relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-wider text-brandPurple bg-brandPurple/10 px-3 py-1.5 rounded-full">Simple 5-Step Process</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-heading text-gray-900 mt-4 mb-4">
+          How HyreBit Works
+        </h2>
+        <p class="text-gray-600 text-lg">
+          Starting your local job search or hiring journey is simple. Follow these steps to get going in minutes.
+        </p>
+      </div>
+
+      <!-- Stepper Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        
+        <!-- Step 1 -->
+        <div class="step-card bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between h-full">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-sm font-extrabold text-brandPurple font-heading bg-brandPurple/10 w-8 h-8 rounded-full flex items-center justify-center">01</span>
+              <div class="bg-brandPurple/10 p-3 rounded-xl">
+                <i data-lucide="user" class="w-6 h-6 text-brandPurple"></i>
+              </div>
+            </div>
+            <h3 class="font-bold font-heading text-lg text-gray-900 mb-2">Create Your Profile</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Enter basic details and location. No resume needed. Get verified in under a minute.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between h-full">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-sm font-extrabold text-brandGreen font-heading bg-brandGreen/10 w-8 h-8 rounded-full flex items-center justify-center">02</span>
+              <div class="bg-brandGreen/10 p-3 rounded-xl">
+                <i data-lucide="map-pin" class="w-6 h-6 text-brandGreen"></i>
+              </div>
+            </div>
+            <h3 class="font-bold font-heading text-lg text-gray-900 mb-2">Discover Nearby Jobs</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Explore daily wage, flexible, or permanent jobs within a 3km radius on a simple list or map.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between h-full">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-sm font-extrabold text-amber-500 font-heading bg-amber-500/10 w-8 h-8 rounded-full flex items-center justify-center">03</span>
+              <div class="bg-amber-500/10 p-3 rounded-xl">
+                <i data-lucide="zap" class="w-6 h-6 text-amber-500"></i>
+              </div>
+            </div>
+            <h3 class="font-bold font-heading text-lg text-gray-900 mb-2">Quick Apply in One Tap</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Submit applications instantly. Employers review credentials and respond rapidly inside app.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-card bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between h-full">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-sm font-extrabold text-blue-500 font-heading bg-blue-50/80 w-8 h-8 rounded-full flex items-center justify-center">04</span>
+              <div class="bg-blue-50 p-3 rounded-xl">
+                <i data-lucide="briefcase" class="w-6 h-6 text-blue-500"></i>
+              </div>
+            </div>
+            <h3 class="font-bold font-heading text-lg text-gray-900 mb-2">Get Selected & Start</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Once hired, show up at the local shop, complete your check-in, and start earning.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="step-card bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between h-full">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-sm font-extrabold text-rose-500 font-heading bg-rose-50/80 w-8 h-8 rounded-full flex items-center justify-center">05</span>
+              <div class="bg-rose-50 p-3 rounded-xl">
+                <i data-lucide="award" class="w-6 h-6 text-rose-500"></i>
+              </div>
+            </div>
+            <h3 class="font-bold font-heading text-lg text-gray-900 mb-2">Earn & Build Trust</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Build your profile reputation, collect positive ratings, and unlock high-paying jobs.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       5. REAL-TIME JOB FEED PREVIEW (Interactive Mock)
+       ========================================== -->
+  <section id="job-feed" class="py-20 bg-white relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-wider text-brandPurple bg-brandPurple/10 px-3 py-1.5 rounded-full">Interactive Demo</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-heading text-gray-900 mt-4 mb-4">
+          Real-Time Job Feed
+        </h2>
+        <p class="text-gray-600">
+          Try our interactive preview below. Select filter tags or search to find specific roles, and tap "Quick Apply" to see how instant connection works.
+        </p>
+      </div>
+
+      <!-- App Screen Shell Container -->
+      <div class="bg-slate-900 rounded-3xl p-4 sm:p-6 shadow-2xl border border-slate-800 max-w-3xl mx-auto relative">
+        
+        <!-- Inside Screen Cover -->
+        <div class="bg-brandGray rounded-2xl p-4 sm:p-6 flex flex-col min-h-[500px]">
+          
+          <!-- Mock Phone Header -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-gray-200 pb-4 mb-6 gap-4">
+            
+            <!-- Proximity and Search Title -->
+            <div class="flex items-center space-x-2">
+              <span class="bg-brandPurple text-white p-2 rounded-xl flex items-center justify-center">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+              </span>
+              <div>
+                <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Search Proximity</p>
+                <p class="text-sm font-extrabold text-gray-900 font-heading">Calicut, Kerala - within 3km</p>
+              </div>
+            </div>
+
+            <!-- Search input widget -->
+            <div class="relative max-w-xs w-full">
+              <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+              <input 
+                id="job-search-input" 
+                type="text" 
+                placeholder="Search bakery, cashier, cafe..." 
+                class="w-full pl-9 pr-4 py-2 border border-gray-200 rounded-xl text-xs focus:ring-2 focus:ring-brandPurple focus:border-brandPurple outline-none transition"
+              >
+            </div>
+
+          </div>
+
+          <!-- Dynamic Filter Tags -->
+          <div class="flex items-center space-x-2 overflow-x-auto pb-4 no-scrollbar mb-4 -mx-2 px-2">
+            <button class="job-filter-tag bg-purple-600 text-white px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition" data-filter="all">All Gigs</button>
+            <button class="job-filter-tag bg-white text-gray-600 border border-gray-200 px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition hover:border-gray-300" data-filter="Flexible">Flexible</button>
+            <button class="job-filter-tag bg-white text-gray-600 border border-gray-200 px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition hover:border-gray-300" data-filter="Part Time">Part Time</button>
+            <button class="job-filter-tag bg-white text-gray-600 border border-gray-200 px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition hover:border-gray-300" data-filter="Full Time">Full Time</button>
+            <button class="job-filter-tag bg-white text-gray-600 border border-gray-200 px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition hover:border-gray-300" data-filter="Supermarket">Supermarket</button>
+            <button class="job-filter-tag bg-white text-gray-600 border border-gray-200 px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition hover:border-gray-300" data-filter="No Experience">No Experience</button>
+          </div>
+
+          <!-- Real-Time Job Feed Cards Container -->
+          <div id="job-feed-list" class="space-y-4 flex-1">
+            
+            <!-- Card 1 -->
+            <div class="job-feed-card bg-white p-5 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+              <div class="flex items-start space-x-4">
+                <div class="bg-brandPurple/10 w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 text-brandPurple">
+                  <i data-lucide="coffee" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <div class="flex flex-wrap items-center gap-2 mb-1.5">
+                    <span class="job-card-tag bg-purple-50 text-brandPurple px-2.5 py-0.5 rounded-md text-[10px] font-bold">Flexible</span>
+                    <span class="job-card-tag bg-gray-100 text-gray-500 px-2.5 py-0.5 rounded-md text-[10px] font-medium">No Experience</span>
+                  </div>
+                  <h4 class="job-card-title text-base font-bold text-gray-900 font-heading">Barista / Counter Staff</h4>
+                  <p class="job-card-company text-sm text-gray-500">The Coffee Club</p>
+                </div>
+              </div>
+              
+              <div class="flex sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto border-t sm:border-t-0 border-gray-100 pt-3 sm:pt-0">
+                <div class="text-left sm:text-right mb-0 sm:mb-2">
+                  <p class="text-sm font-bold text-brandPurple">₹400-600/Day</p>
+                  <p class="text-[10px] text-gray-400 font-medium">0.8 km away</p>
+                </div>
+                <button class="btn-quick-apply bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center shadow-md transition-all active:scale-95">
+                  Quick Apply ⚡
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="job-feed-card bg-white p-5 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+              <div class="flex items-start space-x-4">
+                <div class="bg-brandGreen/10 w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 text-brandGreen">
+                  <i data-lucide="truck" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <div class="flex flex-wrap items-center gap-2 mb-1.5">
+                    <span class="job-card-tag bg-green-50 text-brandGreen px-2.5 py-0.5 rounded-md text-[10px] font-bold">Part Time</span>
+                    <span class="job-card-tag bg-orange-50 text-orange-600 px-2.5 py-0.5 rounded-md text-[10px] font-bold">Requires License</span>
+                  </div>
+                  <h4 class="job-card-title text-base font-bold text-gray-900 font-heading">Delivery Partner</h4>
+                  <p class="job-card-company text-sm text-gray-500">Bakery Fresh</p>
+                </div>
+              </div>
+              
+              <div class="flex sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto border-t sm:border-t-0 border-gray-100 pt-3 sm:pt-0">
+                <div class="text-left sm:text-right mb-0 sm:mb-2">
+                  <p class="text-sm font-bold text-brandGreen">₹500/Day + Incentives</p>
+                  <p class="text-[10px] text-gray-400 font-medium">1.2 km away</p>
+                </div>
+                <button class="btn-quick-apply bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center shadow-md transition-all active:scale-95">
+                  Quick Apply ⚡
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="job-feed-card bg-white p-5 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+              <div class="flex items-start space-x-4">
+                <div class="bg-blue-50 w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 text-blue-500">
+                  <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <div class="flex flex-wrap items-center gap-2 mb-1.5">
+                    <span class="job-card-tag bg-blue-50 text-blue-600 px-2.5 py-0.5 rounded-md text-[10px] font-bold">Full Time</span>
+                    <span class="job-card-tag bg-amber-50 text-amber-600 px-2.5 py-0.5 rounded-md text-[10px] font-bold">Supermarket</span>
+                  </div>
+                  <h4 class="job-card-title text-base font-bold text-gray-900 font-heading">Cashier / Inventory</h4>
+                  <p class="job-card-company text-sm text-gray-500">Mega Mart</p>
+                </div>
+              </div>
+              
+              <div class="flex sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto border-t sm:border-t-0 border-gray-100 pt-3 sm:pt-0">
+                <div class="text-left sm:text-right mb-0 sm:mb-2">
+                  <p class="text-sm font-bold text-gray-900">₹12,000/Month</p>
+                  <p class="text-[10px] text-gray-400 font-medium">2.1 km away</p>
+                </div>
+                <button class="btn-quick-apply bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center shadow-md transition-all active:scale-95">
+                  Quick Apply ⚡
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       6. TRUST & SECURITY BANNER
+       ========================================== -->
+  <section id="trust" class="py-16 bg-brandPurple/5 border-y border-brandPurple/10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-3xl p-8 sm:p-10 border border-gray-200 shadow-lg flex flex-col md:flex-row items-center justify-between gap-8">
+        
+        <!-- Left Side: Badges -->
+        <div class="flex items-center space-x-6">
+          <div class="bg-brandPurple/10 w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0">
+            <i data-lucide="shield-check" class="w-9 h-9 text-brandPurple"></i>
+          </div>
+          <div>
+            <span class="inline-block bg-brandGreen/10 text-brandGreen px-3 py-1 rounded-full text-xs font-bold mb-1">
+              Safe & Verified Platform
+            </span>
+            <h3 class="text-xl sm:text-2xl font-bold font-heading text-gray-900">
+              Your Trust is Our Priority
+            </h3>
+            <p class="text-gray-500 text-sm mt-1">
+              Every job seeker and local business is verified through a secure onboarding process.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Side: Checklists -->
+        <ul class="space-y-3.5 max-w-sm w-full md:border-l md:border-gray-200 md:pl-8">
+          <li class="flex items-start space-x-3 text-sm text-gray-700 font-medium">
+            <span class="bg-brandGreen/10 text-brandGreen p-0.5 rounded-full flex-shrink-0 mt-0.5">
+              <i data-lucide="check" class="w-4 h-4"></i>
+            </span>
+            <span>Verified partners and shop locations</span>
+          </li>
+          <li class="flex items-start space-x-3 text-sm text-gray-700 font-medium">
+            <span class="bg-brandGreen/10 text-brandGreen p-0.5 rounded-full flex-shrink-0 mt-0.5">
+              <i data-lucide="check" class="w-4 h-4"></i>
+            </span>
+            <span>Secure digital payments and work history logs</span>
+          </li>
+          <li class="flex items-start space-x-3 text-sm text-gray-700 font-medium">
+            <span class="bg-brandGreen/10 text-brandGreen p-0.5 rounded-full flex-shrink-0 mt-0.5">
+              <i data-lucide="check" class="w-4 h-4"></i>
+            </span>
+            <span>Real-time communication channels inside the app</span>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       7. TESTIMONIALS SLIDER
+       ========================================== -->
+  <section id="testimonials" class="py-20 bg-brandGray overflow-hidden relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-wider text-brandPurple bg-brandPurple/10 px-3 py-1.5 rounded-full">Success Stories</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-heading text-gray-900 mt-4">
+          What Our Community Says
+        </h2>
+      </div>
+
+      <!-- Testimonial Slider Wrapper -->
+      <div class="relative bg-white rounded-3xl p-8 sm:p-12 border border-gray-200 shadow-md">
+        
+        <!-- Large Quote Icon Backing -->
+        <i data-lucide="quote" class="w-20 h-20 text-gray-100 absolute top-4 right-8 -z-0 select-none pointer-events-none"></i>
+
+        <div class="relative z-10 flex flex-col min-h-[160px] justify-between">
+          
+          <!-- Slides Container -->
+          <div class="flex flex-col">
+            
+            <!-- Slide 1 (Job Seeker) -->
+            <div class="testimonial-slide flex flex-col">
+              <p class="text-lg text-gray-700 leading-relaxed italic mb-6">
+                "I found a weekend cashier job at a bakery just 10 minutes from my house. The payout was prompt and the owner was great! HyreBit has made it so easy to get flexible work during my college breaks."
+              </p>
+              <div class="flex items-center space-x-3">
+                <div class="w-11 h-11 rounded-full bg-brandPurple/15 flex items-center justify-center font-bold text-brandPurple text-sm uppercase">
+                  AK
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-900 text-sm">Adarsh K.</h4>
+                  <p class="text-xs text-gray-500 font-medium">Gig Worker (Student)</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 (Employer) -->
+            <div class="testimonial-slide hidden flex-col">
+              <p class="text-lg text-gray-700 leading-relaxed italic mb-6">
+                "As a cafe owner, finding temporary staff for events used to take days. With HyreBit, I got 5 qualified local applicants within an hour. The trust profile ratings ensure we only receive reliable candidates."
+              </p>
+              <div class="flex items-center space-x-3">
+                <div class="w-11 h-11 rounded-full bg-brandGreen/15 flex items-center justify-center font-bold text-brandGreen text-sm uppercase">
+                  MR
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-900 text-sm">Meera R.</h4>
+                  <p class="text-xs text-gray-500 font-medium">Owner of Brew & Bite</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Slider Controls -->
+          <div class="flex items-center justify-between border-t border-gray-100 pt-6 mt-8">
+            <!-- Navigation dots -->
+            <div id="testimonial-dots" class="flex items-center space-x-2">
+              <!-- Dynamically populated in app.js -->
+              <span class="w-2 h-2 rounded-full bg-gray-300"></span>
+            </div>
+            <!-- Arrows -->
+            <div class="flex items-center space-x-2">
+              <button id="testimonial-prev" class="p-2 border border-gray-200 rounded-xl hover:border-brandPurple hover:text-brandPurple transition text-gray-500" aria-label="Previous testimonial">
+                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+              </button>
+              <button id="testimonial-next" class="p-2 border border-gray-200 rounded-xl hover:border-brandPurple hover:text-brandPurple transition text-gray-500" aria-label="Next testimonial">
+                <i data-lucide="chevron-right" class="w-5 h-5"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       8. CALL-TO-ACTION (CTA) BANNER & FOOTER
+       ========================================== -->
+  <footer id="download" class="bg-slate-950 text-gray-400 relative overflow-hidden">
+    
+    <!-- Top Diagonal/Gradient Glow shape -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-b from-brandPurple/20 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- CTA BANNER AREA -->
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 border-b border-gray-800 text-center">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-white tracking-tight mb-4">
+        Ready to Start Working or Hiring?
+      </h2>
+      <p class="text-gray-400 text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+        Download the HyreBit app today and connect instantly with job seekers or local businesses right in your neighborhood.
+      </p>
+
+      <!-- Store Badges -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <!-- Google Play -->
+        <a href="#" class="bg-slate-900 border border-gray-800 hover:border-brandPurple/50 hover:bg-slate-900/80 px-6 py-3 rounded-2xl flex items-center space-x-3 text-left w-56 justify-center sm:justify-start transition duration-300">
+          <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 24 24">
+            <path d="M5.23 2.06c-.22.22-.36.56-.36.98v17.92c0 .42.14.76.36.98l.06.06L15.35 12l.06-.06L5.29 2l-.06.06zM18.66 8.64L15.4 6.78l-.06-.03L5.3 16.94l.06-.06 3.29-3.29 10.01-4.95c.29-.16.5-.47.5-.83 0-.36-.21-.67-.5-.83zM15.4 6.78L18.66 8.64c.29.16.5.47.5.83 0 .36-.21.67-.5.83l-3.26 1.86-3.22-3.22 3.22-3.22.06-.03zM5.3 16.94l3.22-3.22 3.22 3.22L6.73 21.94c-.22.22-.56.36-.98.36-.42 0-.76-.14-.98-.36l-.06-.06 5.3-5.3-5.3-5.3-.06-.06z"/>
+          </svg>
+          <div>
+            <p class="text-[9px] uppercase tracking-wider text-gray-500 leading-none">Get it on</p>
+            <p class="text-sm font-bold text-white font-heading mt-0.5 leading-none">Google Play</p>
+          </div>
+        </a>
+
+        <!-- iOS App Store -->
+        <a href="#" class="bg-slate-900 border border-gray-800 hover:border-brandPurple/50 hover:bg-slate-900/80 px-6 py-3 rounded-2xl flex items-center space-x-3 text-left w-56 justify-center sm:justify-start transition duration-300">
+          <i data-lucide="apple" class="w-6 h-6 text-white"></i>
+          <div>
+            <p class="text-[9px] uppercase tracking-wider text-gray-500 leading-none">Download on the</p>
+            <p class="text-sm font-bold text-white font-heading mt-0.5 leading-none">App Store</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- FOOTER NAV & COPYRIGHT -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <!-- Logo -->
+        <div class="flex items-center space-x-2 text-xl font-bold font-heading text-white">
+          <span class="bg-brandPurple w-7.5 h-7.5 rounded-lg flex items-center justify-center">
+            <i data-lucide="zap" class="w-4 h-4 text-white fill-white"></i>
+          </span>
+          <span class="tracking-tight text-white">Hyre<span class="text-brandPurple">Bit</span></span>
+        </div>
+
+        <!-- Links -->
+        <div class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm">
+          <a href="#" class="hover:text-white transition">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition">Terms of Service</a>
+          <a href="#" class="hover:text-white transition">Help Center</a>
+          <a href="#" class="hover:text-white transition">Contact Support</a>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="flex items-center space-x-4">
+          <a href="#" class="p-2 bg-slate-900 border border-gray-800 rounded-xl hover:border-brandPurple hover:text-white transition" aria-label="Twitter/X">
+            <i data-lucide="twitter" class="w-4 h-4"></i>
+          </a>
+          <a href="#" class="p-2 bg-slate-900 border border-gray-800 rounded-xl hover:border-brandPurple hover:text-white transition" aria-label="LinkedIn">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
+          </a>
+          <a href="#" class="p-2 bg-slate-900 border border-gray-800 rounded-xl hover:border-brandPurple hover:text-white transition" aria-label="Instagram">
+            <i data-lucide="instagram" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-gray-600 mt-12 pt-8 border-t border-gray-900/60">
+        <p>&copy; 2026 HyreBit Technologies Inc. All rights reserved.</p>
+        <p class="mt-2 sm:mt-0 flex items-center gap-1">Made with <i data-lucide="heart" class="w-3.5 h-3.5 text-rose-500 fill-rose-500"></i> for local shops and earners.</p>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- ==========================================
+       SUCCESS TOAST NOTIFICATION CONTAINER
+       ========================================== -->
+  <div id="toast" class="toast-notification">
+    <div class="bg-slate-950 border border-brandPurple/30 text-white rounded-2xl px-6 py-4 shadow-2xl flex items-center space-x-3.5 max-w-sm">
+      <div class="bg-brandPurple/20 p-2 rounded-xl text-brandPurple flex-shrink-0">
+        <i data-lucide="check" class="w-5 h-5"></i>
+      </div>
+      <div>
+        <p id="toast-message" class="text-xs font-semibold leading-normal text-gray-100">
+          Application sent to <b>The Coffee Club</b>!
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom App Script -->
+  <script src="app.js"></script>
+
+</body>
+</html>
