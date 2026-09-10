@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | HyreBit - Transparent Local Hiring</title>
+  <meta name="description" content="Learn how HyreBit collects, uses, and safeguards your personal and location data when connecting job seekers and local businesses.">
+  <link rel="canonical" href="https://hyrebit.com/privacy-policy.html">
+
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Tailwind Configuration (Consistent with HyreBit Brand) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandPurple: {
+              DEFAULT: '#4A10F4',
+              light: '#F3EDFF',
+              dark: '#380BD1',
+              glow: 'rgba(74, 16, 244, 0.15)',
+            },
+            brandGreen: {
+              DEFAULT: '#17B169',
+              light: '#E8F8F0',
+              dark: '#128C53',
+              glow: 'rgba(23, 177, 105, 0.15)',
+            },
+            brandGray: {
+              DEFAULT: '#FAFAFA',
+              dark: '#1F2937',
+            }
+          },
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            'premium': '0 10px 30px -10px rgba(0, 0, 0, 0.04)',
+            'glow-purple': '0 10px 25px -5px rgba(74, 16, 244, 0.25)',
+            'glow-green': '0 10px 25px -5px rgba(23, 177, 105, 0.25)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-brandGray font-body text-gray-800 antialiased selection:bg-brandPurple/20 selection:text-brandPurple relative min-h-screen flex flex-col justify-between">
+
+  <!-- BACKGROUND DECORATIONS -->
+  <div class="blob-container">
+    <div class="blob blob-purple"></div>
+    <div class="blob blob-green"></div>
+    <div class="blob blob-purple-light"></div>
+  </div>
+
+  <!-- ==========================================
+       1. NAV BAR (Sticky & Glassmorphic)
+       ========================================== -->
+  <header class="glass-nav fixed top-0 left-0 w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center space-x-2 text-2xl font-bold font-heading text-brandPurple transition hover:opacity-90">
+        <span class="bg-brandPurple/10 w-9 h-9 rounded-xl flex items-center justify-center">
+          <i data-lucide="zap" class="w-5 h-5 text-brandPurple fill-brandPurple"></i>
+        </span>
+        <span class="text-gray-900 tracking-tight">Hyre<span class="text-brandPurple">Bit</span></span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="index.html" class="text-sm font-medium text-gray-600 hover:text-brandPurple transition-colors flex items-center gap-1.5">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Home
+        </a>
+        <a href="index.html#how-it-works" class="text-sm font-medium text-gray-600 hover:text-brandPurple transition-colors">How it Works</a>
+        <a href="index.html#job-feed" class="text-sm font-medium text-gray-600 hover:text-brandPurple transition-colors">Find Jobs</a>
+        <a href="index.html#trust" class="text-sm font-medium text-gray-600 hover:text-brandPurple transition-colors">Partner Portal</a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden md:flex items-center space-x-4">
+        <a href="index.html#role-selector" class="border border-brandGreen text-brandGreen hover:bg-brandGreen hover:text-white transition-all duration-300 px-5 py-2.5 rounded-xl text-sm font-semibold btn-glow-green">
+          Post a Job
+        </a>
+        <a href="index.html#download" class="bg-brandPurple hover:bg-brandPurple-dark text-white transition-all duration-300 px-5 py-2.5 rounded-xl text-sm font-semibold btn-glow-purple flex items-center gap-2">
+          <i data-lucide="download" class="w-4 h-4"></i> Get the App
+        </a>
+      </div>
+
+      <!-- Hamburger Button (Mobile) -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:text-brandPurple focus:outline-none" aria-label="Toggle menu">
+        <i id="menu-icon-open" data-lucide="menu" class="w-6 h-6"></i>
+        <i id="menu-icon-close" data-lucide="x" class="w-6 h-6 hidden"></i>
+      </button>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-gray-200 bg-white/95 backdrop-blur-xl px-4 pt-3 pb-6 flex-col space-y-3">
+      <a href="index.html" class="px-3 py-2 text-base font-medium text-brandPurple flex items-center gap-2">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> Return to Homepage
+      </a>
+      <a href="index.html#how-it-works" class="px-3 py-2 text-base font-medium text-gray-700 hover:text-brandPurple">How it Works</a>
+      <a href="index.html#job-feed" class="px-3 py-2 text-base font-medium text-gray-700 hover:text-brandPurple">Find Jobs</a>
+      <a href="index.html#trust" class="px-3 py-2 text-base font-medium text-gray-700 hover:text-brandPurple">Partner Portal</a>
+      <div class="pt-4 flex flex-col gap-3">
+        <a href="index.html#download" class="w-full text-center bg-brandPurple text-white font-semibold py-3 rounded-xl shadow-md">
+          Download App
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       2. HERO HEADER SECTION
+       ========================================== -->
+  <main class="flex-grow pt-28 pb-20 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Breadcrumb & Header Title -->
+      <div class="text-center max-w-3xl mx-auto pt-6 pb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brandPurple/10 text-brandPurple text-xs font-semibold uppercase tracking-wider mb-4 border border-brandPurple/20">
+          <i data-lucide="shield-check" class="w-4 h-4"></i>
+          Legal & Transparency
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-gray-900 tracking-tight leading-tight mb-4">
+          HyreBit Privacy Policy
+        </h1>
+        <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
+          Your privacy matters to us. This policy details how HyreBit collects, safeguards, and respects your personal and location data when connecting local businesses and job seekers.
+        </p>
+        
+        <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-gray-500 mt-6 pt-6 border-t border-gray-200">
+          <span class="flex items-center gap-1.5">
+            <i data-lucide="calendar" class="w-4 h-4 text-brandPurple"></i> Effective Date: June 20, 2026
+          </span>
+          <span class="hidden sm:inline text-gray-300">•</span>
+          <span class="flex items-center gap-1.5">
+            <i data-lucide="refresh-cw" class="w-4 h-4 text-brandGreen"></i> Version: 2.4 (Latest)
+          </span>
+          <span class="hidden sm:inline text-gray-300">•</span>
+          <span class="flex items-center gap-1.5">
+            <i data-lucide="map-pin" class="w-4 h-4 text-brandPurple"></i> Jurisdiction: Global & Local Labor Standards
+          </span>
+        </div>
+      </div>
+
+      <!-- Quick Trust Summary Banner (TL;DR) -->
+      <div class="glass-card rounded-2xl p-6 sm:p-8 mb-12 border border-brandPurple/20 bg-gradient-to-br from-white/90 via-purple-50/30 to-emerald-50/20 shadow-premium">
+        <h2 class="text-lg font-bold font-heading text-gray-900 mb-3 flex items-center gap-2">
+          <i data-lucide="sparkles" class="w-5 h-5 text-brandPurple"></i>
+          Our Core Privacy Principles (In Plain English)
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+          <div class="flex items-start space-x-3">
+            <div class="w-8 h-8 rounded-xl bg-brandPurple/10 text-brandPurple flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i data-lucide="crosshair" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h3 class="text-sm font-semibold text-gray-900">Hyperlocal by Design</h3>
+              <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+                We only use your GPS location to display relevant jobs within your selected neighborhood radius (e.g., 5km). We never track you when the app is closed unless explicitly enabled for shifts.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div class="w-8 h-8 rounded-xl bg-brandGreen/10 text-brandGreen flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i data-lucide="lock" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h3 class="text-sm font-semibold text-gray-900">We Never Sell Your Data</h3>
+              <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+                HyreBit does not monetize personal data through third-party data brokers. Your profile is only shared with verified local business managers when you choose to apply.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div class="w-8 h-8 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i data-lucide="user-x" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h3 class="text-sm font-semibold text-gray-900">Full Account & Data Control</h3>
+              <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+                You retain complete rights to access, download, or permanently delete your account and personal records at any time directly through in-app settings or email request.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           3. MAIN LEGAL CONTENT & NAVIGATION SIDEBAR
+           ========================================== -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- STICKY TABLE OF CONTENTS (Desktop) -->
+        <aside class="hidden lg:block lg:col-span-4 xl:col-span-3">
+          <div class="sticky top-28 glass-card rounded-2xl p-6 border border-gray-200/80 shadow-sm max-h-[calc(100vh-140px)] overflow-y-auto no-scrollbar">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-4 flex items-center gap-2">
+              <i data-lucide="list" class="w-4 h-4 text-brandPurple"></i>
+              Table of Contents
+            </h3>
+            <nav class="space-y-1 text-sm">
+              <a href="#section-1" class="toc-link block px-3 py-2 rounded-lg text-gray-600 hover:text-brandPurple hover:bg-brandPurple/5 font-medium transition">1. Who We Are & Scope</a>
+              <a href="#section-2" class="toc-link block px-3 py-2 rounded-lg text-gray-600 hover:text-brandPurple hover:bg-brandPurple/5 font-medium transition">2. Information We Collect</a>
+              <a href="#section-3" class="toc-link block px-3 py-2 rounded-lg text-gray-600 hover:text-brandPurple hover:bg-brandPurple/5 font-medium transition">3. Location & GPS Data</a>
+              <a href="#section-4" class="toc-link block px-3 py-2 rounded-lg text-gray-600 hover:text-brandPurple hover:bg-brandPurple/5 font-medium transition">4. How We Use Your Data</a>
+              <a href="#section-5" class="toc-link block px-3 py-2 rounded-lg text-gray-600 hover:text-brandPurple hover:bg-brandPurple/5 font-medium transition">5. Information Sharing</a>
+              <a href="#section-6" class="toc-link block px-3 py-2 rounded-lg text-gray-600 hover:text-brandPurple hover:bg-brandPurple/5 font-medium transition">6. Data Retention & Deletion</a>
+              <a href="#section-7" class="toc-link block px-3 py-2 rounded-lg text-gray-600 hover:text-brandPurple hover:bg-brandPurple/5 font-medium transition">7. Security & Safeguards</a>
+              <a href="#section-8" class="toc-link block px-3 py-2 rounded-lg text-gray-600 hover:text-brandPurple hover:bg-brandPurple/5 font-medium transition">8. Your Rights & Choices</a>
+              <a href="#section-9" class="toc-link block px-3 py-2 rounded-lg text-gray-600 hover:text-brandPurple hover:bg-brandPurple/5 font-medium transition">9. Cookies & Analytics</a>
+              <a href="#section-10" class="toc-link block px-3 py-2 rounded-lg text-gray-600 hover:text-brandPurple hover:bg-brandPurple/5 font-medium transition">10. Children's Privacy</a>
+              <a href="#section-11" class="toc-link block px-3 py-2 rounded-lg text-gray-600 hover:text-brandPurple hover:bg-brandPurple/5 font-medium transition">11. Policy Modifications</a>
+              <a href="#section-12" class="toc-link block px-3 py-2 rounded-lg text-gray-600 hover:text-brandPurple hover:bg-brandPurple/5 font-medium transition">12. Contact & Grievances</a>
+            </nav>
+
+            <div class="mt-8 pt-6 border-t border-gray-100">
+              <div class="bg-brandPurple/5 rounded-xl p-3.5 border border-brandPurple/10">
+                <p class="text-xs text-gray-600 font-medium leading-relaxed">
+                  Have a specific privacy inquiry? Contact our Data Officer:
+                </p>
+                <a href="mailto:privacy@hyrebit.com" class="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-brandPurple hover:underline">
+                  <i data-lucide="mail" class="w-3.5 h-3.5"></i> privacy@hyrebit.com
+                </a>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- POLICY DOCUMENT BODY -->
+        <article class="lg:col-span-8 xl:col-span-9 space-y-12">
+          
+          <!-- SECTION 1 -->
+          <section id="section-1" class="scroll-mt-28 bg-white/90 backdrop-blur rounded-2xl p-6 sm:p-8 border border-gray-200/80 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-9 h-9 rounded-xl bg-brandPurple/10 text-brandPurple flex items-center justify-center font-bold text-sm">1</span>
+              <h2 class="text-xl sm:text-2xl font-bold font-heading text-gray-900">Who We Are & Scope of this Policy</h2>
+            </div>
+            <div class="text-gray-700 leading-relaxed space-y-4 text-sm sm:text-base">
+              <p>
+                Welcome to <strong>HyreBit</strong> ("we," "our," or "us"), operated by <strong>HyreBit Technologies Inc.</strong> This Privacy Policy governs your use of our mobile applications, web platform located at <a href="https://hyrebit.com" class="text-brandPurple underline">https://hyrebit.com</a>, and associated local staffing and wage fulfillment services (collectively, the "Platform").
+              </p>
+              <p>
+                HyreBit bridges the gap between neighborhood job seekers ("Earners" or "Job Seekers") and local storefronts, retail outlets, supermarkets, and cafes ("Employers" or "Partners"). Because our core mission involves matchmaking within localized radiuses, our platform relies on specific location and identity information. This document explains transparently how that information is handled.
+              </p>
+              <div class="p-4 rounded-xl bg-slate-50 border-l-4 border-brandPurple text-xs sm:text-sm text-gray-600">
+                <strong>Important:</strong> By downloading our mobile app, registering an account, posting an opening, or tapping "Quick Apply," you agree to the collection and handling of your data as outlined in this document.
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 2 -->
+          <section id="section-2" class="scroll-mt-28 bg-white/90 backdrop-blur rounded-2xl p-6 sm:p-8 border border-gray-200/80 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-9 h-9 rounded-xl bg-brandPurple/10 text-brandPurple flex items-center justify-center font-bold text-sm">2</span>
+              <h2 class="text-xl sm:text-2xl font-bold font-heading text-gray-900">Information We Collect</h2>
+            </div>
+            <div class="text-gray-700 leading-relaxed space-y-4 text-sm sm:text-base">
+              <p>
+                We collect only the minimum necessary information required to verify identity, foster trust, and deliver rapid job matchmaking:
+              </p>
+
+              <div class="space-y-4 pt-2">
+                <!-- Seeker Data -->
+                <div class="border border-gray-100 rounded-xl p-4 bg-gray-50/50">
+                  <h3 class="text-base font-semibold text-gray-900 flex items-center gap-2">
+                    <i data-lucide="user" class="w-4 h-4 text-brandPurple"></i>
+                    A. For Job Seekers & Gig Earners
+                  </h3>
+                  <ul class="list-disc list-inside mt-2 space-y-1.5 text-sm text-gray-600">
+                    <li><strong>Account Basics:</strong> Full name, verified mobile phone number, and optional email address.</li>
+                    <li><strong>Profile & Qualifications:</strong> Skills (e.g., Barista, Cashier, Inventory), spoken languages, availability preferences, and prior work experience.</li>
+                    <li><strong>Application History:</strong> Gigs applied for, accepted shifts, clock-in timestamps, and shop ratings.</li>
+                    <li><strong>Payout Information:</strong> Bank account, UPI ID, or digital wallet details necessary to process direct wage payouts.</li>
+                  </ul>
+                </div>
+
+                <!-- Employer Data -->
+                <div class="border border-gray-100 rounded-xl p-4 bg-gray-50/50">
+                  <h3 class="text-base font-semibold text-gray-900 flex items-center gap-2">
+                    <i data-lucide="store" class="w-4 h-4 text-brandGreen"></i>
+                    B. For Local Employers & Business Owners
+                  </h3>
+                  <ul class="list-disc list-inside mt-2 space-y-1.5 text-sm text-gray-600">
+                    <li><strong>Business Profile:</strong> Registered store/cafe name, manager contact name, official phone number, business email, and storefront address.</li>
+                    <li><strong>Verification Credentials:</strong> Business permits, GST numbers, or municipal trade licenses to qualify for the "Verified Partner" badge.</li>
+                    <li><strong>Hiring Listings:</strong> Shift hours, job requirements, wage rates, and manager review remarks.</li>
+                  </ul>
+                </div>
+
+                <!-- Automated Device Data -->
+                <div class="border border-gray-100 rounded-xl p-4 bg-gray-50/50">
+                  <h3 class="text-base font-semibold text-gray-900 flex items-center gap-2">
+                    <i data-lucide="smartphone" class="w-4 h-4 text-gray-700"></i>
+                    C. Technical & Diagnostic Information
+                  </h3>
+                  <ul class="list-disc list-inside mt-2 space-y-1.5 text-sm text-gray-600">
+                    <li>Device model, Operating System version (iOS/Android), unique device identifiers, IP address, crash analytics, and platform interaction logs.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 3 -->
+          <section id="section-3" class="scroll-mt-28 bg-white/90 backdrop-blur rounded-2xl p-6 sm:p-8 border border-gray-200/80 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-9 h-9 rounded-xl bg-brandPurple/10 text-brandPurple flex items-center justify-center font-bold text-sm">3</span>
+              <h2 class="text-xl sm:text-2xl font-bold font-heading text-gray-900">Location & GPS Data Usage</h2>
+            </div>
+            <div class="text-gray-700 leading-relaxed space-y-4 text-sm sm:text-base">
+              <p>
+                HyreBit’s core value proposition is <strong>instant local hiring</strong>. To display opportunities located within walking or quick commuting distance (such as within 1km to 5km), our application requests access to your device's location services.
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-3">
+                <div class="p-4 rounded-xl border border-purple-100 bg-purple-50/40">
+                  <h4 class="font-semibold text-sm text-brandPurple flex items-center gap-1.5 mb-1">
+                    <i data-lucide="navigation" class="w-4 h-4"></i> Foreground Location
+                  </h4>
+                  <p class="text-xs text-gray-600 leading-relaxed">
+                    Accessed while actively browsing the app to calculate proximity tags (e.g. "0.8 km away") and prioritize nearby job listings.
+                  </p>
+                </div>
+                <div class="p-4 rounded-xl border border-emerald-100 bg-emerald-50/40">
+                  <h4 class="font-semibold text-sm text-brandGreen flex items-center gap-1.5 mb-1">
+                    <i data-lucide="clock" class="w-4 h-4"></i> Geofence Shift Verification
+                  </h4>
+                  <p class="text-xs text-gray-600 leading-relaxed">
+                    Used during confirmed work shifts to verify shift arrival and enable instantaneous wage release upon completion.
+                  </p>
+                </div>
+              </div>
+
+              <p class="text-sm text-gray-600">
+                <strong>Your Control:</strong> You may grant or withdraw location permissions anytime through your device’s operating system settings (Settings &gt; HyreBit &gt; Location Permissions). Note that disabling location may limit job discovery to manual neighborhood search.
+              </p>
+            </div>
+          </section>
+
+          <!-- SECTION 4 -->
+          <section id="section-4" class="scroll-mt-28 bg-white/90 backdrop-blur rounded-2xl p-6 sm:p-8 border border-gray-200/80 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-9 h-9 rounded-xl bg-brandPurple/10 text-brandPurple flex items-center justify-center font-bold text-sm">4</span>
+              <h2 class="text-xl sm:text-2xl font-bold font-heading text-gray-900">How We Use Your Data</h2>
+            </div>
+            <div class="text-gray-700 leading-relaxed space-y-4 text-sm sm:text-base">
+              <p>We process your data strictly for legitimate operational purposes:</p>
+              
+              <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs sm:text-sm border-collapse">
+                  <thead>
+                    <tr class="border-b border-gray-200 text-gray-500 font-semibold">
+                      <th class="py-3 px-3">Purpose</th>
+                      <th class="py-3 px-3">Data Used</th>
+                      <th class="py-3 px-3">Legal Basis</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-100 text-gray-600">
+                    <tr>
+                      <td class="py-3 px-3 font-medium text-gray-900">Local Job Matchmaking</td>
+                      <td class="py-3 px-3">Location, skills, preferred role</td>
+                      <td class="py-3 px-3">Performance of Contract</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3 px-3 font-medium text-gray-900">Application Delivery</td>
+                      <td class="py-3 px-3">Applicant profile, name, phone</td>
+                      <td class="py-3 px-3">Consent / Performance of Contract</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3 px-3 font-medium text-gray-900">Wage Disbursements</td>
+                      <td class="py-3 px-3">Bank/UPI info, completed shifts</td>
+                      <td class="py-3 px-3">Contractual Fulfillment & Legal Obligation</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3 px-3 font-medium text-gray-900">Fraud & Safety Checks</td>
+                      <td class="py-3 px-3">Device ID, shop licenses, verification docs</td>
+                      <td class="py-3 px-3">Legitimate Interest</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3 px-3 font-medium text-gray-900">Operational Alerts (SMS/Push)</td>
+                      <td class="py-3 px-3">Phone number, push tokens</td>
+                      <td class="py-3 px-3">Consent</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 5 -->
+          <section id="section-5" class="scroll-mt-28 bg-white/90 backdrop-blur rounded-2xl p-6 sm:p-8 border border-gray-200/80 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-9 h-9 rounded-xl bg-brandPurple/10 text-brandPurple flex items-center justify-center font-bold text-sm">5</span>
+              <h2 class="text-xl sm:text-2xl font-bold font-heading text-gray-900">Information Sharing & Disclosure</h2>
+            </div>
+            <div class="text-gray-700 leading-relaxed space-y-4 text-sm sm:text-base">
+              <p>
+                <strong>We will never sell, rent, or trade your personal data with third-party advertising companies.</strong> We only share information in the following clearly defined circumstances:
+              </p>
+              
+              <ul class="space-y-3 pt-1 text-sm text-gray-600">
+                <li class="flex items-start gap-2.5">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-brandPurple flex-shrink-0 mt-1"></i>
+                  <span><strong>Between Job Seekers & Verified Employers:</strong> When an earner submits a job application, their contact name, phone, listed skills, and distance are transmitted to the verified employer to review the hiring request.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-brandPurple flex-shrink-0 mt-1"></i>
+                  <span><strong>Service Providers & Infrastructure:</strong> Trusted cloud hosting providers (e.g., AWS/Google Cloud), SMS verification delivery gateways, and regulated payment processors bound by strict confidentiality agreements.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-brandPurple flex-shrink-0 mt-1"></i>
+                  <span><strong>Legal Mandates:</strong> When legally compelled by court orders, government authorities, or to protect the vital safety of individuals on our platform.</span>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- SECTION 6 -->
+          <section id="section-6" class="scroll-mt-28 bg-white/90 backdrop-blur rounded-2xl p-6 sm:p-8 border border-gray-200/80 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-9 h-9 rounded-xl bg-brandPurple/10 text-brandPurple flex items-center justify-center font-bold text-sm">6</span>
+              <h2 class="text-xl sm:text-2xl font-bold font-heading text-gray-900">Data Retention & Account Deletion</h2>
+            </div>
+            <div class="text-gray-700 leading-relaxed space-y-4 text-sm sm:text-base">
+              <p>
+                We retain your personal information only for as long as your account is active or as necessary to provide services and comply with financial record-keeping standards (such as payroll audit logs).
+              </p>
+              <div class="p-4 rounded-xl border border-red-100 bg-red-50/40 text-gray-700 text-sm space-y-2">
+                <h4 class="font-bold text-red-800 flex items-center gap-2">
+                  <i data-lucide="trash-2" class="w-4 h-4 text-red-600"></i>
+                  How to Permanently Delete Your Data
+                </h4>
+                <p>
+                  You can permanently delete your profile at any time by going to <strong>HyreBit App &gt; Settings &gt; Privacy & Security &gt; Delete Account</strong>, or by emailing <a href="mailto:privacy@hyrebit.com" class="text-brandPurple font-semibold underline">privacy@hyrebit.com</a> with the subject line "Data Deletion Request".
+                </p>
+                <p class="text-xs text-gray-500">
+                  Upon confirmation, all your profile data, personal identifiers, and application records are scrubbed from active databases within 14 business days, except records legally required for tax compliance.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 7 -->
+          <section id="section-7" class="scroll-mt-28 bg-white/90 backdrop-blur rounded-2xl p-6 sm:p-8 border border-gray-200/80 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-9 h-9 rounded-xl bg-brandPurple/10 text-brandPurple flex items-center justify-center font-bold text-sm">7</span>
+              <h2 class="text-xl sm:text-2xl font-bold font-heading text-gray-900">Security Safeguards</h2>
+            </div>
+            <div class="text-gray-700 leading-relaxed space-y-4 text-sm sm:text-base">
+              <p>
+                HyreBit implements defense-in-depth technical and organizational measures to safeguard user data:
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
+                <div class="p-3.5 bg-gray-50 rounded-xl border border-gray-100 text-center">
+                  <i data-lucide="shield" class="w-6 h-6 text-brandPurple mx-auto mb-2"></i>
+                  <h4 class="text-xs font-bold text-gray-900 uppercase">256-Bit TLS Encryption</h4>
+                  <p class="text-[11px] text-gray-500 mt-1">All data transmitted between mobile devices and servers is encrypted in transit.</p>
+                </div>
+                <div class="p-3.5 bg-gray-50 rounded-xl border border-gray-100 text-center">
+                  <i data-lucide="key" class="w-6 h-6 text-brandGreen mx-auto mb-2"></i>
+                  <h4 class="text-xs font-bold text-gray-900 uppercase">Role-Based Access</h4>
+                  <p class="text-[11px] text-gray-500 mt-1">Strict internal least-privilege policies protect stored databases and payment tokens.</p>
+                </div>
+                <div class="p-3.5 bg-gray-50 rounded-xl border border-gray-100 text-center">
+                  <i data-lucide="badge-check" class="w-6 h-6 text-brandPurple mx-auto mb-2"></i>
+                  <h4 class="text-xs font-bold text-gray-900 uppercase">Vetted Partners</h4>
+                  <p class="text-[11px] text-gray-500 mt-1">Employer stores undergo verification before they can post shifts and receive applicants.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 8 -->
+          <section id="section-8" class="scroll-mt-28 bg-white/90 backdrop-blur rounded-2xl p-6 sm:p-8 border border-gray-200/80 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-9 h-9 rounded-xl bg-brandPurple/10 text-brandPurple flex items-center justify-center font-bold text-sm">8</span>
+              <h2 class="text-xl sm:text-2xl font-bold font-heading text-gray-900">Your Privacy Rights & Choices</h2>
+            </div>
+            <div class="text-gray-700 leading-relaxed space-y-4 text-sm sm:text-base">
+              <p>Depending on your geographic jurisdiction (such as GDPR, CCPA, or regional personal data protection regulations), you possess specific legal rights regarding your information:</p>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-gray-700">
+                <li class="p-3 rounded-xl bg-gray-50 border border-gray-100 flex items-start gap-2">
+                  <i data-lucide="eye" class="w-4 h-4 text-brandPurple flex-shrink-0 mt-0.5"></i>
+                  <span><strong>Right to Access:</strong> Request a full copy of the personal data we hold about you.</span>
+                </li>
+                <li class="p-3 rounded-xl bg-gray-50 border border-gray-100 flex items-start gap-2">
+                  <i data-lucide="edit-3" class="w-4 h-4 text-brandPurple flex-shrink-0 mt-0.5"></i>
+                  <span><strong>Right to Correction:</strong> Update outdated contact details or resume info instantly.</span>
+                </li>
+                <li class="p-3 rounded-xl bg-gray-50 border border-gray-100 flex items-start gap-2">
+                  <i data-lucide="download-cloud" class="w-4 h-4 text-brandPurple flex-shrink-0 mt-0.5"></i>
+                  <span><strong>Data Portability:</strong> Export your shift history and profile in a structured format.</span>
+                </li>
+                <li class="p-3 rounded-xl bg-gray-50 border border-gray-100 flex items-start gap-2">
+                  <i data-lucide="bell-off" class="w-4 h-4 text-brandPurple flex-shrink-0 mt-0.5"></i>
+                  <span><strong>Opt-out of Notifications:</strong> Manage SMS or push notification preferences in settings.</span>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- SECTION 9 -->
+          <section id="section-9" class="scroll-mt-28 bg-white/90 backdrop-blur rounded-2xl p-6 sm:p-8 border border-gray-200/80 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-9 h-9 rounded-xl bg-brandPurple/10 text-brandPurple flex items-center justify-center font-bold text-sm">9</span>
+              <h2 class="text-xl sm:text-2xl font-bold font-heading text-gray-900">Cookies & Web Technologies</h2>
+            </div>
+            <div class="text-gray-700 leading-relaxed space-y-4 text-sm sm:text-base">
+              <p>
+                Our landing website (<a href="https://hyrebit.com" class="text-brandPurple underline">hyrebit.com</a>) uses minimal functional cookies and session tokens to preserve authentication states and analyze anonymized site traffic. We do not use intrusive cross-site tracking cookies. You may disable cookies in your browser settings without impacting core website viewing.
+              </p>
+            </div>
+          </section>
+
+          <!-- SECTION 10 -->
+          <section id="section-10" class="scroll-mt-28 bg-white/90 backdrop-blur rounded-2xl p-6 sm:p-8 border border-gray-200/80 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-9 h-9 rounded-xl bg-brandPurple/10 text-brandPurple flex items-center justify-center font-bold text-sm">10</span>
+              <h2 class="text-xl sm:text-2xl font-bold font-heading text-gray-900">Children's Privacy Protection</h2>
+            </div>
+            <div class="text-gray-700 leading-relaxed space-y-4 text-sm sm:text-base">
+              <p>
+                HyreBit is strictly designed for individuals who have reached the legal working age in their relevant jurisdiction (minimum 18 years of age, or 16+ where legally permitted by local labor frameworks with parental consent). We do not knowingly collect personal information from children under 16. If we discover an account registered by an ineligible minor, it will be promptly suspended and deleted.
+              </p>
+            </div>
+          </section>
+
+          <!-- SECTION 11 -->
+          <section id="section-11" class="scroll-mt-28 bg-white/90 backdrop-blur rounded-2xl p-6 sm:p-8 border border-gray-200/80 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-9 h-9 rounded-xl bg-brandPurple/10 text-brandPurple flex items-center justify-center font-bold text-sm">11</span>
+              <h2 class="text-xl sm:text-2xl font-bold font-heading text-gray-900">Updates to this Policy</h2>
+            </div>
+            <div class="text-gray-700 leading-relaxed space-y-4 text-sm sm:text-base">
+              <p>
+                We may revise this Privacy Policy to reflect enhancements in our application features, regulatory updates, or changes in legal guidelines. When material updates occur, we will notify you through an in-app banner or SMS notification prior to the change becoming effective. The revised "Last Updated" date at the top will indicate when modifications took effect.
+              </p>
+            </div>
+          </section>
+
+          <!-- SECTION 12 -->
+          <section id="section-12" class="scroll-mt-28 bg-white/90 backdrop-blur rounded-2xl p-6 sm:p-8 border border-brandPurple/30 shadow-md bg-gradient-to-br from-white to-purple-50/20">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-9 h-9 rounded-xl bg-brandPurple text-white flex items-center justify-center font-bold text-sm">12</span>
+              <h2 class="text-xl sm:text-2xl font-bold font-heading text-gray-900">Contact Us & Grievance Officer</h2>
+            </div>
+            <div class="text-gray-700 leading-relaxed space-y-4 text-sm sm:text-base">
+              <p>
+                If you have questions, concerns, or grievances regarding this Privacy Policy or HyreBit's data practices, please reach out directly to our dedicated Data Protection team:
+              </p>
+              
+              <div class="mt-4 p-5 rounded-xl bg-white border border-gray-200 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide">Privacy & Legal Inquiries</p>
+                  <a href="mailto:privacy@hyrebit.com" class="text-brandPurple font-semibold text-base hover:underline flex items-center gap-1.5 mt-1">
+                    <i data-lucide="mail" class="w-4 h-4"></i> privacy@hyrebit.com
+                  </a>
+                  <p class="text-xs text-gray-500 mt-2">Response SLA: Within 48 business hours</p>
+                </div>
+                <div>
+                  <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide">General Support</p>
+                  <a href="mailto:support@hyrebit.com" class="text-brandPurple font-semibold text-base hover:underline flex items-center gap-1.5 mt-1">
+                    <i data-lucide="help-circle" class="w-4 h-4"></i> support@hyrebit.com
+                  </a>
+                  <p class="text-xs text-gray-500 mt-2">HyreBit Technologies Inc.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </article>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ==========================================
+       4. FOOTER (Consistent with Brand)
+       ========================================== -->
+  <footer id="download" class="bg-slate-950 text-gray-400 relative overflow-hidden mt-auto">
+    
+    <!-- Top Gradient Glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-gradient-to-b from-brandPurple/20 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- CTA BANNER AREA -->
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 relative z-10 border-b border-gray-800 text-center">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-white tracking-tight mb-3">
+        Experience Safe, Instant Local Hiring
+      </h2>
+      <p class="text-gray-400 text-sm sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
+        Download HyreBit today to discover verified hourly gigs and staff your shop in minutes.
+      </p>
+
+      <!-- Store Badges -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <!-- Google Play -->
+        <a href="#" class="bg-slate-900 border border-gray-800 hover:border-brandPurple/50 hover:bg-slate-900/80 px-6 py-3 rounded-2xl flex items-center space-x-3 text-left w-56 justify-center sm:justify-start transition duration-300">
+          <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 24 24">
+            <path d="M5.23 2.06c-.22.22-.36.56-.36.98v17.92c0 .42.14.76.36.98l.06.06L15.35 12l.06-.06L5.29 2l-.06.06zM18.66 8.64L15.4 6.78l-.06-.03L5.3 16.94l.06-.06 3.29-3.29 10.01-4.95c.29-.16.5-.47.5-.83 0-.36-.21-.67-.5-.83zM15.4 6.78L18.66 8.64c.29.16.5.47.5.83 0 .36-.21.67-.5.83l-3.26 1.86-3.22-3.22 3.22-3.22.06-.03zM5.3 16.94l3.22-3.22 3.22 3.22L6.73 21.94c-.22.22-.56.36-.98.36-.42 0-.76-.14-.98-.36l-.06-.06 5.3-5.3-5.3-5.3-.06-.06z"/>
+          </svg>
+          <div>
+            <p class="text-[9px] uppercase tracking-wider text-gray-500 leading-none">Get it on</p>
+            <p class="text-sm font-bold text-white font-heading mt-0.5 leading-none">Google Play</p>
+          </div>
+        </a>
+
+        <!-- iOS App Store -->
+        <a href="#" class="bg-slate-900 border border-gray-800 hover:border-brandPurple/50 hover:bg-slate-900/80 px-6 py-3 rounded-2xl flex items-center space-x-3 text-left w-56 justify-center sm:justify-start transition duration-300">
+          <i data-lucide="apple" class="w-6 h-6 text-white"></i>
+          <div>
+            <p class="text-[9px] uppercase tracking-wider text-gray-500 leading-none">Download on the</p>
+            <p class="text-sm font-bold text-white font-heading mt-0.5 leading-none">App Store</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- FOOTER NAV & COPYRIGHT -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center space-x-2 text-xl font-bold font-heading text-white">
+          <span class="bg-brandPurple w-7.5 h-7.5 rounded-lg flex items-center justify-center">
+            <i data-lucide="zap" class="w-4 h-4 text-white fill-white"></i>
+          </span>
+          <span class="tracking-tight text-white">Hyre<span class="text-brandPurple">Bit</span></span>
+        </a>
+
+        <!-- Links -->
+        <div class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm">
+          <a href="privacy-policy.html" class="text-white font-medium transition">Privacy Policy</a>
+          <a href="index.html" class="hover:text-white transition">Home</a>
+          <a href="index.html#how-it-works" class="hover:text-white transition">How it Works</a>
+          <a href="mailto:support@hyrebit.com" class="hover:text-white transition">Contact Support</a>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="flex items-center space-x-4">
+          <a href="#" class="p-2 bg-slate-900 border border-gray-800 rounded-xl hover:border-brandPurple hover:text-white transition" aria-label="Twitter/X">
+            <i data-lucide="twitter" class="w-4 h-4"></i>
+          </a>
+          <a href="#" class="p-2 bg-slate-900 border border-gray-800 rounded-xl hover:border-brandPurple hover:text-white transition" aria-label="LinkedIn">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
+          </a>
+          <a href="#" class="p-2 bg-slate-900 border border-gray-800 rounded-xl hover:border-brandPurple hover:text-white transition" aria-label="Instagram">
+            <i data-lucide="instagram" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-gray-600 mt-10 pt-6 border-t border-gray-900/60">
+        <p>&copy; 2026 HyreBit Technologies Inc. All rights reserved.</p>
+        <p class="mt-2 sm:mt-0 flex items-center gap-1">Made with <i data-lucide="heart" class="w-3.5 h-3.5 text-rose-500 fill-rose-500"></i> for local shops and earners.</p>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Script for Interactivity (Lucide, Mobile Menu, TOC Active State) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIconOpen = document.getElementById('menu-icon-open');
+      const menuIconClose = document.getElementById('menu-icon-close');
+
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+          mobileMenu.classList.toggle('flex');
+          if (menuIconOpen && menuIconClose) {
+            menuIconOpen.classList.toggle('hidden');
+            menuIconClose.classList.toggle('hidden');
+          }
+        });
+      }
+
+      // Scroll spy for Table of Contents
+      const sections = document.querySelectorAll('article section');
+      const navLinks = document.querySelectorAll('.toc-link');
+
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 140;
+          if (window.pageYOffset >= sectionTop) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('bg-brandPurple/10', 'text-brandPurple', 'font-bold');
+          if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('bg-brandPurple/10', 'text-brandPurple', 'font-bold');
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
